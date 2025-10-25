@@ -5,10 +5,15 @@
 	import SingleTestimonial from '$lib/components/SingleTestimonial.svelte'
 	import { m } from '$lib/paraglide/messages'
 	import { getStories } from '$lib/utils/stories.js'
+	import { getLocale } from '$lib/paraglide/runtime.js'
 
 	let stories = $state([])
-	getStories().then((s) => {
-		stories = s
+
+	$effect(() => {
+		const lang = getLocale()
+		getStories(lang).then((s) => {
+			stories = s
+		})
 	})
 
 	let emblaApi = $state(null)

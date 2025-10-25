@@ -5,14 +5,15 @@
 	import { m } from '$lib/paraglide/messages'
 
 	const icons = {
-		platforms: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg>`,
-		ml: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="m8.5 14 7-4"/><path d="m8.5 10 7 4"/></svg>`,
-		webapps: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"/><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"/><circle cx="12" cy="12" r="10"/></svg>`,
-		architecture: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.99 6.74 1.93 3.44"/><path d="M19.136 12a10 10 0 0 1-14.271 0"/><path d="m21 21-2.16-3.84"/><path d="m3 21 8.02-14.26"/><circle cx="12" cy="5" r="2"/></svg>`
+		python: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h5"/><path d="M12 14v6a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-5"/><circle cx="8.5" cy="5.5" r=".5" fill="currentColor"/><circle cx="15.5" cy="18.5" r=".5" fill="currentColor"/></svg>`,
+		ml: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3.001 3.001 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3.001 3.001 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z"/></svg>`,
+		webapps: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+		research: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="13" r="2"/><path d="m14 17-3-3"/></svg>`,
+		tools: `<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`
 	}
 </script>
 
-{#snippet textItem(title, subtitle, icon, paragraph)}
+{#snippet textItem(title, subtitle, icon, paragraph, tags = [], href = '#contact', linkText = m.nav_contact())}
 	<div class="item textual {icon}">
 		<div class="icon">
 			{@html icons[icon]}
@@ -32,17 +33,25 @@
 			{paragraph}
 		</p>
 
+		{#if tags.length > 0}
+			<div class="skills-tags">
+				{#each tags as tag}
+					<span class="tag">{tag}</span>
+				{/each}
+			</div>
+		{/if}
+
 		<a
 			class="cta"
-			href="#contact"
+			{href}
 			onclick={(e) => {
 				e.preventDefault()
-				const target = document.querySelector('#contact')
-				lenis.scrollTo(target, { duration: 2 })
+				const target = document.querySelector(href)
+				if (target) lenis.scrollTo(target, { duration: 2 })
 			}}
 		>
 			<span class="text">
-				{m.nav_contact()}
+				{linkText}
 			</span>
 			<span class="icon">
 				<svg
@@ -74,8 +83,9 @@
 	{@render textItem(
 		m.bento_one_title(),
 		m.bento_one_subtitle(),
-		'platforms',
-		m.bento_one_paragraph()
+		'python',
+		m.bento_one_paragraph(),
+		['Python', 'NumPy / Pandas', 'OpenCV', 'Streamlit']
 	)}
 
 	<div class="item pili">
@@ -86,14 +96,16 @@
 		m.bento_two_title(),
 		m.bento_two_subtitle(),
 		'ml',
-		m.bento_two_paragraph()
+		m.bento_two_paragraph(),
+		['Machine Learning', 'Neural Networks', 'Model Evaluation', 'Computer Vision']
 	)}
 
 	{@render textItem(
 		m.bento_three_title(),
 		m.bento_three_subtitle(),
 		'webapps',
-		m.bento_three_paragraph()
+		m.bento_three_paragraph(),
+		['HTML', 'CSS', 'JavaScript', 'Firebase', 'Vercel']
 	)}
 
 	<div class="item gradient">
@@ -103,8 +115,19 @@
 	{@render textItem(
 		m.bento_four_title(),
 		m.bento_four_subtitle(),
-		'architecture',
-		m.bento_four_paragraph()
+		'research',
+		m.bento_four_paragraph(),
+		['Paper Analysis', 'Model Evaluation', 'AI Research', 'Experiment Log'],
+		'#research-journal',
+		m.read_journal()
+	)}
+
+	{@render textItem(
+		m.bento_five_title(),
+		m.bento_five_subtitle(),
+		'tools',
+		m.bento_five_paragraph(),
+		['Git / GitHub', 'Jupyter Notebook', 'Raspberry Pi', 'Java (OOP)', 'C Language']
 	)}
 </div>
 
@@ -132,14 +155,14 @@
 			min-height: 250px;
 			max-width: calc(100vh - 2rem);
 			min-width: 300px;
-			background-color: $white;
+			background-color: var(--color-surface-card);
 			border-radius: 40px;
 
 			&.pili {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				border: solid 1px $ultralight-grey;
+				border: solid 1px var(--color-border);
 				overflow: hidden;
 				padding: 120px;
 
@@ -153,7 +176,7 @@
 			}
 
 			&.textual {
-				border: solid 1px $ultralight-grey;
+				border: solid 1px var(--color-border);
 				padding: 3rem;
 				display: flex;
 				flex-direction: column;
@@ -193,7 +216,7 @@
 
 					&:hover {
 						gap: 1rem;
-						color: $accent;
+						color: var(--color-accent);
 					}
 				}
 
@@ -210,7 +233,7 @@
 				}
 
 				h3 {
-					color: $accent;
+					color: var(--color-accent);
 					font-size: 3.5rem;
 					white-space: pre-wrap;
 
@@ -220,18 +243,39 @@
 				}
 
 				.subtitle {
-					color: $light-grey;
+					color: var(--color-light-grey);
 				}
 
 				p {
 					text-transform: none;
 					font-size: 1rem;
-					margin-top: auto;
+					margin-top: 0;
 					transition: ease all 250ms;
 				}
 
+				.skills-tags {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+					margin-top: auto;
+					padding-bottom: 0.5rem;
+				}
+
+				.tag {
+					font-size: 0.75rem;
+					padding: 0.3rem 0.65rem;
+					background-color: var(--color-ultralight-grey);
+					color: var(--color-dark-grey);
+					border-radius: 9999px;
+					border: 1px solid var(--color-border);
+					text-transform: none;
+					font-weight: 500;
+					white-space: nowrap;
+					transition: background-color 0.2s ease, border-color 0.2s ease;
+				}
+
 				.icon {
-					color: $accent;
+					color: var(--color-accent);
 				}
 			}
 

@@ -19,7 +19,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="centered-text">
+<div class="centered-text" id="research-journal">
 	<div class="text-wrapper">
 		<p>{m.centered_text_intro()}</p>
 		<h2>{m.centered_text_heading()}</h2>
