@@ -1,10 +1,11 @@
-$accent: #00218f;
-$white: #fff;
-$black: #000;
-$dark-grey: #272727;
-$light-grey: #747474;
-$ultralight-grey: #dddddd;
-$broken-white: #fcfcfc;
+// Color tokens — light mode defaults, overridden in dark mode via CSS custom properties
+$accent: var(--color-accent);
+$white: var(--color-white);
+$black: var(--color-black);
+$dark-grey: var(--color-dark-grey);
+$light-grey: var(--color-light-grey);
+$ultralight-grey: var(--color-ultralight-grey);
+$broken-white: var(--color-broken-white);
 
 $mobile: 768px;
 $tablet: 1024px;
