@@ -34,6 +34,8 @@
       uniform float u_threshold;
       uniform float u_scale;
       uniform vec2 u_resolution;
+      uniform vec3 u_bgColor;
+      uniform vec3 u_shapeColor;
       
       // simplex 2d noise
       vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
@@ -89,11 +91,8 @@
         
         // hard threshold for blobs
         float shape = smoothstep(u_threshold - 0.02, u_threshold + 0.02, value);
-
-        vec3 shapeColor = vec3(0.754, 0.754, 0.754);
-        vec3 bgColor = vec3(1.0, 1.0, 1.0);
-
-        vec3 finalColor = mix(bgColor, shapeColor, shape);
+        
+        vec3 finalColor = mix(u_bgColor, u_shapeColor, shape);
         
         gl_FragColor = vec4(finalColor, 1.0);
       }
@@ -163,6 +162,13 @@
 		gl.uniform1f(gl.getUniformLocation(program, 'u_threshold'), threshold)
 		gl.uniform1f(gl.getUniformLocation(program, 'u_scale'), scale)
 		gl.uniform2f(gl.getUniformLocation(program, 'u_resolution'), gridSize, gridSize)
+
+		// dynamic dark mode color overrides
+		const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+		const bg = isDark ? [24 / 255, 24 / 255, 27 / 255] : [1.0, 1.0, 1.0]
+		const shape = isDark ? [42 / 255, 42 / 255, 46 / 255] : [221 / 255, 221 / 255, 221 / 255]
+		gl.uniform3f(gl.getUniformLocation(program, 'u_bgColor'), bg[0], bg[1], bg[2])
+		gl.uniform3f(gl.getUniformLocation(program, 'u_shapeColor'), shape[0], shape[1], shape[2])
 
 		// draw
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
