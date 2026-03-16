@@ -338,6 +338,13 @@
 						flex-basis: 0;
 						border: none;
 						border-bottom: solid 1px $black;
+						color: var(--color-black);
+						background-color: transparent;
+
+						&::placeholder {
+							color: var(--color-light-grey);
+							opacity: 0.7;
+						}
 
 						@media (max-width: $mobile) {
 							flex-basis: auto;

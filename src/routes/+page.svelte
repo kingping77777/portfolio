@@ -4,7 +4,10 @@
 	import TextTwo from '$lib/components/TextTwo.svelte'
 	import CenteredText from '$lib/components/CenteredText.svelte'
 	import Bento from '$lib/components/Bento.svelte'
+	import Projects from '$lib/components/Projects.svelte'
 	import WideText from '$lib/components/WideText.svelte'
+	import Education from '$lib/components/Education.svelte'
+	import Achievements from '$lib/components/Achievements.svelte'
 	import EyeMarquee from '$lib/components/EyeMarquee.svelte'
 	import TextThree from '$lib/components/TextThree.svelte'
 	import Contact from '$lib/components/Contact.svelte'
@@ -20,7 +23,10 @@
 		TextTwo,
 		CenteredText,
 		Bento,
+		Projects,
 		WideText,
+		Education,
+		Achievements,
 		EyeMarquee,
 		TextThree,
 		Contact,

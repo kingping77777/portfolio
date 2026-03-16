@@ -65,7 +65,7 @@
 						cx="659.8"
 						cy="213.1"
 						r="115.3"
-						style="fill:#002ab5;stroke-width:0"
+						style="fill:var(--color-logo-fill, #002ab5);stroke-width:0"
 					/><path
 						id="pupil"
 						d="M575.9 211.8c44.5-44.5 116.7-44.5 161.2 0-44.6 44.5-116.7 44.5-161.2 0Z"
@@ -77,7 +77,7 @@
 					/><path
 						id="outline"
 						d="m655.7 14 21.2 27.8c77.1 101.2 77.1 241.5 0 342.7l-21.2 27.8-19.5-27.3c-73.5-102.8-73.5-241 0-343.8L655.7 14Z"
-						style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:11.48px"
+						style="fill:none;stroke:var(--color-svg-stroke, #000);stroke-miterlimit:10;stroke-width:11.48px"
 					/></g
 				><path
 					d="M0 0v423h180V0H0Zm90 414c-44.7 0-81-36.3-81-81s36.3-81 81-81 81 36.3 81 81-36.3 81-81 81Zm81-234s.1 63.5-80.9 63.8c-59 .2-81.1 50-81.1 50V76.7C9 39.3 39.3 9 76.7 9H171v171Z"
