@@ -51,7 +51,7 @@
 	--color-footer-text: rgb(150, 150, 160);
 
 	/* invert black SVGs to white in dark mode */
-	.pili img, .large-pili img {
+	.pili img, .large-pili img, .arrow-wrapper img {
 		filter: invert(1);
 	}
 }

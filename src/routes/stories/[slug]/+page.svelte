@@ -351,6 +351,10 @@
 				margin-bottom: 3rem;
 				transition: ease color 300ms;
 
+				svg {
+					stroke: currentColor;
+				}
+
 				&:hover {
 					color: $accent;
 					text-decoration: none;
@@ -643,6 +647,10 @@
 
 			.icon {
 				transform: translateY(1px);
+			}
+
+			svg {
+				stroke: currentColor;
 			}
 		}
 	}
