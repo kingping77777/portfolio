@@ -72,5 +72,11 @@
 	"bento_five_title": "Languages &\nTools",
 	"bento_five_paragraph": "Using Git/GitHub for version control, Jupyter for prototyping, and systems languages like C and Java (OOP) alongside Raspberry Pi hardware for integrations.",
 	"error_back_button": "Let's get out of here",
-	"next_story": "Next"
+	"next_story": "Next",
+	"bento_six_subtitle": "Hardware & perception",
+	"bento_six_title": "Computer Vision\n& IoT",
+	"bento_six_paragraph": "Developing intelligent systems combining OpenCV and YOLO for real-time threat detection, alongside Raspberry Pi and sensor integrations.",
+	"journal_section_intro": "My readings & insights",
+	"journal_section_heading": "research journal",
+	"journal_section_outro": "(lessons from paper reviews)"
 }

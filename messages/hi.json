@@ -72,5 +72,11 @@
 	"bento_five_title": "भाषाएं और\nटूल्स",
 	"bento_five_paragraph": "वर्शन कंट्रोल के लिए Git/GitHub, प्रोटोटाइपिंग के लिए Jupyter, और सिस्टम इंटीग्रेशन के लिए C, Java (OOP) और Raspberry Pi का उपयोग।",
 	"error_back_button": "चलो यहां से निकलते हैं",
-	"next_story": "अगला"
+	"next_story": "अगला",
+	"bento_six_subtitle": "हार्डवेयर और धारणा",
+	"bento_six_title": "कंप्यूटर विज़न\nऔर IoT",
+	"bento_six_paragraph": "रियल-टाइम खतरे का पता लगाने के लिए OpenCV और YOLO को मिलाकर बुद्धिमान प्रणालियां विकसित करना, साथ ही Raspberry Pi और सेंसर एकीकरण।",
+	"journal_section_intro": "मेरे अध्ययन और अंतर्दृष्टि",
+	"journal_section_heading": "शोध पत्रिका",
+	"journal_section_outro": "(शोध पत्रों की समीक्षा से सीख)"
 }
