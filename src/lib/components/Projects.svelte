@@ -29,13 +29,6 @@
 			description: "A premium tech aggregate platform hosting discussion, reviews, and latest updates in AI/ML and software engineering. Deployed and optimized on Vercel.",
 			tech: ["SvelteKit", "Vite", "Vercel", "Tailwind CSS"],
 			link: "https://tech-pulse12.vercel.app/"
-		},
-		{
-			title: "AI Research Journal",
-			subtitle: "Research & Development",
-			description: "A comprehensive journal documenting my AI research journey, paper reviews, model training insights, and academic ML experiments.",
-			tech: ["Machine Learning", "Research", "Git/GitHub"],
-			link: "https://github.com/kingping77777/AI-Research-Journal"
 		}
 	]
 </script>
