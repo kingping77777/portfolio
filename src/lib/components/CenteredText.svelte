@@ -1,7 +1,6 @@
 <script>
 	import Pili from '$lib/components/Pili.svelte'
 	import { m } from '$lib/paraglide/messages.js'
-	import Testimonials from './Testimonials.svelte'
 
 	const piliCounts = [
 		{ breakpoint: 999999, rows: [1, 3, 5, 9, 12, 11, 7, 3, 1] },
@@ -19,14 +18,11 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="centered-text" id="research-journal">
+<div class="centered-text">
 	<div class="text-wrapper">
 		<p>{m.centered_text_intro()}</p>
 		<h2>{m.centered_text_heading()}</h2>
-
-		<div class="testimonials">
-			<Testimonials />
-		</div>
+		<p class="outro">{m.centered_text_outro()}</p>
 	</div>
 
 	<div class="pili-wrapper">
@@ -65,6 +61,11 @@
 			p {
 				max-width: 30ch;
 				margin: 0 auto;
+			}
+
+			.outro {
+				font-size: 0.8rem;
+				color: var(--color-light-grey);
 			}
 		}
 
