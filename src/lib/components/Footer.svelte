@@ -50,7 +50,17 @@
 	const randomId = () => ids[Math.floor(Math.random() * ids.length)]
 </script>
 
-<div class="footer">
+<div class="footer" id="footer">
+	<div class="contact-links">
+		<a href="mailto:mansionjoker22@email.com" class="contact-link">mansionjoker22@email.com</a>
+		<span class="separator">/</span>
+		<a href="tel:+919149292083" class="contact-link">+91 9149292083</a>
+		<span class="separator">/</span>
+		<a href="https://github.com/kingping77777" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+		<span class="separator">/</span>
+		<a href="https://www.linkedin.com/in/daksh-sengar-79ab962ba/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+	</div>
+
 	<div class="texts">
 		<span>
 			{m.footer_copyright()}
@@ -93,6 +103,42 @@
 
 	.footer {
 		margin-top: 8rem;
+
+		.contact-links {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 1.5rem;
+			margin-bottom: 2.5rem;
+			font-family: 'Hel', sans-serif;
+			font-size: 0.8rem;
+			text-transform: uppercase;
+
+			.contact-link {
+				color: var(--color-light-grey);
+				transition: color 0.3s ease;
+				text-decoration: none;
+
+				&:hover {
+					color: var(--color-accent);
+					text-decoration: underline;
+				}
+			}
+
+			.separator {
+				color: var(--color-border);
+			}
+
+			@media (max-width: $mobile) {
+				flex-direction: column;
+				gap: 0.8rem;
+
+				.separator {
+					display: none;
+				}
+			}
+		}
 
 		.inline-icon {
 			color: $accent;
