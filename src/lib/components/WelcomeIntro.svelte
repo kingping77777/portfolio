@@ -2,20 +2,13 @@
 	import { onMount } from 'svelte'
 	import { browser } from '$app/environment'
 
-	let active = $state(false)
+	let active = $state(true)
 	let progress = $state(0)
 	let entered = $state(false)
 
 	onMount(() => {
 		if (!browser) return
 		
-		// Session check to show only once per session
-		const played = sessionStorage.getItem('portfolio-intro-played')
-		if (played) {
-			active = false
-			return
-		}
-
 		active = true
 
 		// Load simulation over 1.8 seconds
@@ -38,7 +31,6 @@
 
 	const handleEnter = () => {
 		entered = true
-		sessionStorage.setItem('portfolio-intro-played', 'true')
 		setTimeout(() => {
 			active = false
 		}, 850) // Allow exit transition to complete

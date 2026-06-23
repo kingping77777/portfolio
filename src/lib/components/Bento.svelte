@@ -1,6 +1,4 @@
 <script>
-	import BentoGradient from '$lib/components/BentoGradient.svelte'
-	import LargePili from '$lib/components/LargePili.svelte'
 	import { lenis } from '$lib/utils/lenis'
 	import { m } from '$lib/paraglide/messages'
 
@@ -113,10 +111,6 @@
 {/snippet}
 
 <div class="bento">
-	<div class="item portrait">
-		<enhanced:img class="portrait-img" src="/static/polaroideder.webp" alt="Eder" />
-	</div>
-
 	{@render textItem(
 		m.bento_one_title(),
 		m.bento_one_subtitle(),
@@ -124,10 +118,6 @@
 		m.bento_one_paragraph(),
 		['Python', 'NumPy / Pandas', 'OpenCV', 'Streamlit']
 	)}
-
-	<div class="item pili">
-		<LargePili />
-	</div>
 
 	{@render textItem(
 		m.bento_two_title(),
@@ -144,10 +134,6 @@
 		m.bento_three_paragraph(),
 		['HTML', 'CSS', 'JavaScript', 'Firebase', 'Vercel']
 	)}
-
-	<div class="item gradient">
-		<BentoGradient />
-	</div>
 
 	{@render textItem(
 		m.bento_four_title(),
@@ -210,22 +196,6 @@
 				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 			}
 
-			&.pili {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				border: solid 1px var(--color-border);
-				overflow: hidden;
-				padding: 120px;
-
-				@media (max-width: 1560px) and (min-width: 942px) {
-					display: none;
-				}
-
-				img {
-					filter: opacity(0.25);
-				}
-			}
 
 			&.textual {
 				border: solid 1px var(--color-border);
@@ -238,17 +208,7 @@
 					padding: 2rem;
 				}
 
-				@media (any-pointer: fine) {
-					&:not(:hover) {
-						a.cta {
-							opacity: 0;
-						}
 
-						p {
-							transform: translateY(40px);
-						}
-					}
-				}
 
 				a.cta {
 					display: flex;
@@ -341,16 +301,6 @@
 				}
 			}
 
-			&.portrait {
-				overflow: hidden;
-				min-width: 250px;
-
-				.portrait-img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-				}
-			}
 		}
 	}
 </style>

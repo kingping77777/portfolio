@@ -11,32 +11,14 @@ export async function GET() {
 			loc: 'https://dakshsengar.dev/',
 			lastmod: today,
 			priority: '1.0',
-			en: 'https://dakshsengar.dev/',
-			hi: 'https://dakshsengar.dev/hi'
+			en: 'https://dakshsengar.dev/'
 		},
-		{
-			loc: 'https://dakshsengar.dev/hi',
-			lastmod: today,
-			priority: '0.9',
-			en: 'https://dakshsengar.dev/',
-			hi: 'https://dakshsengar.dev/hi'
-		},
-		...stories.flatMap((s) => [
-			{
-				loc: `https://dakshsengar.dev/stories/${s.slug}`,
-				lastmod: s.date,
-				priority: '0.8',
-				en: `https://dakshsengar.dev/stories/${s.slug}`,
-				hi: `https://dakshsengar.dev/hi/stories/${s.slug}`
-			},
-			{
-				loc: `https://dakshsengar.dev/hi/stories/${s.slug}`,
-				lastmod: s.date,
-				priority: '0.7',
-				en: `https://dakshsengar.dev/stories/${s.slug}`,
-				hi: `https://dakshsengar.dev/hi/stories/${s.slug}`
-			}
-		])
+		...stories.map((s) => ({
+			loc: `https://dakshsengar.dev/stories/${s.slug}`,
+			lastmod: s.date,
+			priority: '0.8',
+			en: `https://dakshsengar.dev/stories/${s.slug}`
+		}))
 	]
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -49,7 +31,6 @@ ${urls
     <changefreq>weekly</changefreq>
     <priority>${u.priority}</priority>
     <xhtml:link rel="alternate" hreflang="en" href="${u.en}"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="${u.hi}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="${u.en}"/>
   </url>`
 	)
