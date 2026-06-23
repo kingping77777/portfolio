@@ -33,6 +33,7 @@
 		"embla-carousel-svelte": "^8.6.0",
 		"lenis": "^1.2.3",
 		"resend": "^4.2.0",
-		"split-type": "^0.3.4"
+		"split-type": "^0.3.4",
+		"three": "^0.184.0"
 	}
 }

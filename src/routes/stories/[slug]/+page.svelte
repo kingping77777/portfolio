@@ -17,12 +17,7 @@
 			: null
 	)
 
-	let locale = $derived(getLocale())
-	let canonical = $derived(
-		locale === 'hi'
-			? `https://dakshsengar.dev/hi/stories/${metadata.slug}`
-			: `https://dakshsengar.dev/stories/${metadata.slug}`
-	)
+	let canonical = $derived(`https://dakshsengar.dev/stories/${metadata.slug}`)
 	let articleJsonLd = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'Article',
@@ -153,7 +148,6 @@
 	<meta name="description" content={metadata.description} />
 	<link rel="canonical" href={canonical} />
 	<link rel="alternate" hreflang="en" href={`https://dakshsengar.dev/stories/${metadata.slug}`} />
-	<link rel="alternate" hreflang="hi" href={`https://dakshsengar.dev/hi/stories/${metadata.slug}`} />
 	<link rel="alternate" hreflang="x-default" href={`https://dakshsengar.dev/stories/${metadata.slug}`} />
 	<meta property="og:title" content={`${metadata.title} | Daksh Sengar`} />
 	<meta property="og:description" content={metadata.description} />
@@ -161,8 +155,7 @@
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
 	<meta property="og:site_name" content="Daksh Sengar" />
-	<meta property="og:locale" content={locale === 'hi' ? 'hi_IN' : 'en_US'} />
-	<meta property="og:locale:alternate" content={locale === 'hi' ? 'en_US' : 'hi_IN'} />
+	<meta property="og:locale" content="en_US" />
 	<meta property="article:published_time" content={`${metadata.date}T00:00:00+01:00`} />
 	<meta property="article:author" content="Daksh Sengar" />
 	<meta property="article:section" content={metadata.category} />

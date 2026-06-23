@@ -106,7 +106,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 1.5rem;
-			transition: all 0.3s ease;
+			transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 			min-height: 200px;
 
 			@media (max-width: $mobile) {
@@ -117,8 +117,8 @@
 
 			&:hover {
 				border-color: var(--color-accent);
-				transform: translateY(-3px);
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+				transform: translateY(-8px);
+				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 			}
 
 			.header-group {

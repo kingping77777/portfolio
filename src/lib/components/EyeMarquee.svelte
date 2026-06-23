@@ -109,13 +109,11 @@
 	.marquee {
 		padding: 14rem 0;
 		width: 100%;
+		overflow: hidden;
 
 		@media (max-width: $mobile) {
-			transform: translateX(var(--mobile-offset));
-		}
-
-		@media (max-width: $mobile) {
-			padding-top: 8rem;
+			transform: none;
+			padding: 4rem 0;
 		}
 
 		svg {
@@ -124,7 +122,9 @@
 			transform: translateX(-50%);
 
 			@media (max-width: $mobile) {
-				width: 230vw;
+				width: 100%;
+				max-width: calc(100vw - 2rem);
+				height: auto;
 			}
 
 			#pupil {

@@ -4,12 +4,18 @@ import { fail } from '@sveltejs/kit'
 
 const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null
 
+function escapeHtml(text) {
+	if (typeof text !== 'string') return ''
+	return text
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;')
+}
+
 export const actions = {
 	default: async ({ request }) => {
-		if (!resend) {
-			return fail(500, { error: 'Contact form is not configured yet. Please set RESEND_API_KEY.' })
-		}
-
 		const formData = await request.formData()
 
 		const honeypot = formData.get('website')
@@ -18,10 +24,20 @@ export const actions = {
 		const t = Number(formData.get('t'))
 		if (!t || Date.now() - t < 2000) return fail(400, { error: 'Invalid submission' })
 
-		const name = formData.get('name')
-		const email = formData.get('email')
-		const message = formData.get('message')
-		const company = formData.get('company')
+		const name = escapeHtml(formData.get('name'))
+		const email = escapeHtml(formData.get('email'))
+		const message = escapeHtml(formData.get('message'))
+		const company = escapeHtml(formData.get('company'))
+
+		if (!resend) {
+			console.log('📬 [Contact Form Mock Submission]:')
+			console.log(`   Name: ${name}`)
+			console.log(`   Organization: ${company}`)
+			console.log(`   Email: ${email}`)
+			console.log(`   Message: ${message}`)
+			console.log('------------------------------------')
+			return { success: true }
+		}
 
 		const { data, error } = await resend.emails.send({
 			from: 'noreply@dakshsengar.dev',

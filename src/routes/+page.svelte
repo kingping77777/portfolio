@@ -1,5 +1,5 @@
 <script>
-		import Splash from '$lib/components/Splash.svelte'
+	import Splash from '$lib/components/Splash.svelte'
 	import TextOne from '$lib/components/TextOne.svelte'
 	import TextTwo from '$lib/components/TextTwo.svelte'
 	import CenteredText from '$lib/components/CenteredText.svelte'
@@ -8,8 +8,9 @@
 	import WideText from '$lib/components/WideText.svelte'
 	import ResearchJournal from '$lib/components/ResearchJournal.svelte'
 	import Education from '$lib/components/Education.svelte'
-	import Achievements from '$lib/components/Achievements.svelte'
 	import EyeMarquee from '$lib/components/EyeMarquee.svelte'
+	import TextThree from '$lib/components/TextThree.svelte'
+	import Contact from '$lib/components/Contact.svelte'
 	import Footer from '$lib/components/Footer.svelte'
 	import { onMount } from 'svelte'
 	import { m } from '$lib/paraglide/messages.js'
@@ -26,8 +27,9 @@
 		Projects,
 		ResearchJournal,
 		Education,
-		Achievements,
 		EyeMarquee,
+		TextThree,
+		Contact,
 		Footer
 	]
 
@@ -35,8 +37,7 @@
 	let PiliHandler = $state(null)
 	let OffsetHandler = $state(null)
 
-	let currentLanguage = $state(getLocale())
-	const canonical = currentLanguage === 'hi' ? 'https://dakshsengar.dev/hi' : 'https://dakshsengar.dev/'
+	const canonical = 'https://dakshsengar.dev/'
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@graph': [
@@ -45,7 +46,7 @@
 				name: 'Daksh Sengar',
 				url: 'https://dakshsengar.dev',
 				description: m.meta_description(),
-				inLanguage: ['en', 'hi']
+				inLanguage: ['en']
 			},
 			{
 				'@type': 'ProfessionalService',
@@ -120,7 +121,6 @@
 	<meta name="description" content={m.meta_description()} />
 	<link rel="canonical" href={canonical} />
 	<link rel="alternate" hreflang="en" href="https://dakshsengar.dev/" />
-	<link rel="alternate" hreflang="hi" href="https://dakshsengar.dev/hi" />
 	<link rel="alternate" hreflang="x-default" href="https://dakshsengar.dev/" />
 	<meta property="og:title" content={m.meta_title()} />
 	<meta property="og:description" content={m.meta_description()} />
@@ -128,8 +128,7 @@
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="Daksh Sengar" />
-	<meta property="og:locale" content={currentLanguage === 'hi' ? 'hi_IN' : 'en_US'} />
-	<meta property="og:locale:alternate" content={currentLanguage === 'hi' ? 'en_US' : 'hi_IN'} />
+	<meta property="og:locale" content="en_US" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={m.meta_title()} />
 	<meta name="twitter:description" content={m.meta_description()} />

@@ -1,8 +1,7 @@
 import { getLocale } from '$lib/paraglide/runtime.js'
 
 const files = {
-	en: import.meta.glob('/src/content/stories/en/*.md'),
-	hi: import.meta.glob('/src/content/stories/hi/*.md')
+	en: import.meta.glob('/src/content/stories/en/*.md')
 }
 
 export async function getStories(locale) {

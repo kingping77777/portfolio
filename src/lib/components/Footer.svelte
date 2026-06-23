@@ -54,11 +54,11 @@
 	<div class="contact-links">
 		<a href="mailto:mansionjoker22@email.com" class="contact-link">mansionjoker22@email.com</a>
 		<span class="separator">/</span>
-		<a href="tel:+919149292083" class="contact-link">+91 9149292083</a>
-		<span class="separator">/</span>
 		<a href="https://github.com/kingping77777" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
 		<span class="separator">/</span>
 		<a href="https://www.linkedin.com/in/daksh-sengar-79ab962ba/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+		<span class="separator">/</span>
+		<a href="https://www.instagram.com/anddhebecomess?igsh=MXQ3NzVhenR5YXdhNw==" target="_blank" rel="noopener noreferrer" class="contact-link">Instagram</a>
 	</div>
 
 	<div class="texts">

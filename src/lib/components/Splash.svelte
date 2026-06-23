@@ -26,16 +26,8 @@
 	let softAnimations = $state(true)
 
 	onMount(() => {
-		const changedLocale = localStorage.getItem('changed-locale')
-
-		console.log(changedLocale)
-
-		if (!changedLocale || Date.now() - parseInt(changedLocale) > 60000) {
-			softAnimations = false
-			setTimeout(() => (ready = true), 10)
-		} else {
-			setTimeout(() => (ready = true), 10)
-		}
+		softAnimations = false
+		setTimeout(() => (ready = true), 10)
 
 		const logoLetters = document.querySelectorAll('#logo_daksh .lt')
 		logoLetters.forEach((element) => {
@@ -116,6 +108,11 @@
 		height: calc(100vh - 2rem);
 		position: relative;
 
+		@media (max-width: $mobile) {
+			padding-top: 80px;
+			height: calc(100dvh - 80px);
+		}
+
 		&:not(.ready):not(.soft-animations) {
 			.pili-wrapper,
 			.text-wrapper {
@@ -158,7 +155,7 @@
 
 			@media (max-width: $mobile) {
 				width: 100%;
-				height: 100dvh;
+				height: calc(100% - 20px);
 				flex-direction: column;
 				gap: 1rem;
 			}

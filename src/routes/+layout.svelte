@@ -1,11 +1,14 @@
 <script>
 	import '$lib/scss/main.scss'
 	import '$lib/scss/reset.scss'
-	import { locales, getLocale, setLocale } from '$lib/paraglide/runtime'
+	import { getLocale } from '$lib/paraglide/runtime'
 	import { lenis, easeInOutCubic } from '$lib/utils/lenis'
 	import { onDestroy, onMount } from 'svelte'
 	import { onNavigate } from '$app/navigation'
 	import { m } from '$lib/paraglide/messages'
+	import WelcomeIntro from '$lib/components/WelcomeIntro.svelte'
+	import SolarCursor from '$lib/components/SolarCursor.svelte'
+	import WaterEffect from '$lib/components/WaterEffect.svelte'
 
 	let { children } = $props()
 
@@ -31,11 +34,6 @@
 			document.documentElement.removeAttribute('data-theme')
 			localStorage.setItem('theme', 'light')
 		}
-	}
-
-	const setLocaleWithoutAnimations = (locale) => {
-		localStorage.setItem('changed-locale', Date.now().toString())
-		setLocale(locale)
 	}
 
 	onDestroy(() => {
@@ -64,23 +62,6 @@
 
 <nav class:hidden={shy && scrollY > 100} class:floating={scrollY > 300}>
 	<div class="cta">
-		<button
-			class="locale-toggle"
-			onclick={() => setLocaleWithoutAnimations(getLocale() === 'en' ? 'hi' : 'en')}
-		>
-			<span class="lang en" class:active={getLocale() === 'en'}>EN</span>
-			<div class="handle-wrapper" class:toggled={getLocale() === 'hi'}>
-				<div class="handle">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-						><path
-							d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM9.71002 19.6674C8.74743 17.6259 8.15732 15.3742 8.02731 13H4.06189C4.458 16.1765 6.71639 18.7747 9.71002 19.6674ZM10.0307 13C10.1811 15.4388 10.8778 17.7297 12 19.752C13.1222 17.7297 13.8189 15.4388 13.9693 13H10.0307ZM19.9381 13H15.9727C15.8427 15.3742 15.2526 17.6259 14.29 19.6674C17.2836 18.7747 19.542 16.1765 19.9381 13ZM4.06189 11H8.02731C8.15732 8.62577 8.74743 6.37407 9.71002 4.33256C6.71639 5.22533 4.458 7.8235 4.06189 11ZM10.0307 11H13.9693C13.8189 8.56122 13.1222 6.27025 12 4.24799C10.8778 6.27025 10.1811 8.56122 10.0307 11ZM14.29 4.33256C15.2526 6.37407 15.8427 8.62577 15.9727 11H19.9381C19.542 7.8235 17.2836 5.22533 14.29 4.33256Z"
-						></path></svg
-					>
-				</div>
-			</div>
-			<span class="lang hi" class:active={getLocale() === 'hi'}>HI</span>
-		</button>
-
 		<button class="theme-toggle" onclick={toggleTheme} aria-label="Toggle dark mode">
 			{#if isDark}
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path></svg>
@@ -94,6 +75,9 @@
 		</a>
 		<a href="https://www.linkedin.com/in/daksh-sengar-79ab962ba/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79V18h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.44v-8h-2.79v8h2.79z"/></svg>
+		</a>
+		<a href="https://www.instagram.com/anddhebecomess?igsh=MXQ3NzVhenR5YXdhNw==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
 		</a>
 
 		<div class="backdrop"></div>
@@ -124,11 +108,17 @@
 	</a>
 </nav>
 
+<WelcomeIntro />
+<SolarCursor />
+<WaterEffect effect="water" />
+
 <div class="layout">
 	<div class="wrapper">
 		{@render children()}
 	</div>
 </div>
+
+
 
 <style lang="scss">
 	@use 'src/lib/scss/variables' as *;
@@ -138,7 +128,10 @@
 		top: 0;
 		left: 0;
 		padding: 20px;
-		background-color: var(--color-surface-nav);
+		background-color: var(--color-surface-nav-glass);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border-bottom: solid 1px var(--color-border-glass);
 		z-index: 100;
 		transition: ease all 500ms;
 		display: flex;
@@ -176,27 +169,28 @@
 		}
 
 		@media (max-width: $mobile) {
-			top: auto;
-			left: auto;
-			right: 0;
+			top: 0;
+			bottom: auto;
 			left: 0;
-			bottom: 0;
+			right: 0;
 			width: 100%;
 			padding: 1rem;
-			background-color: var(--color-surface-nav-mobile);
-			border-top: solid 1px var(--color-border);
+			background-color: var(--color-surface-nav-glass);
+			border-bottom: solid 1px var(--color-border-glass);
 
 			&.hidden {
-				transform: translateY(200%);
+				transform: translateY(-200%);
 			}
 		}
 
 		@media (min-width: $mobile) {
 			border-bottom: solid 1px transparent;
-			background-color: var(--color-surface-nav);
+			background-color: var(--color-surface-nav-glass);
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
 
 			&.floating {
-				border-color: var(--color-border);
+				border-color: var(--color-border-glass);
 			}
 		}
 
@@ -243,6 +237,8 @@
 			color: var(--color-black);
 			transition: ease all 300ms;
 			border-radius: 50%;
+			background: transparent;
+			cursor: pointer;
 
 			&:hover {
 				color: var(--color-accent);

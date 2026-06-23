@@ -118,7 +118,7 @@
 			position: relative;
 			text-decoration: none;
 			color: inherit;
-			transition: all 0.3s ease;
+			transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 			min-height: 280px;
 
 			@media (max-width: $mobile) {
@@ -127,9 +127,9 @@
 			}
 
 			&:hover {
-				transform: translateY(-5px);
+				transform: translateY(-8px);
 				border-color: var(--color-accent);
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 
 				.arrow-icon {
 					transform: translate(3px, -3px);
