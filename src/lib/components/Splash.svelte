@@ -11,6 +11,8 @@
 		{ breakpoint: 768, count: 20, extraRowCounts: [2, 4, 7, 5, 3] }
 	]
 
+	import { welcomeState } from '$lib/utils/state.svelte.js'
+
 	let innerWidth = $state(0)
 	let piliCount = $derived.by(() => {
 		const idx = piliCounts.findIndex((piliCount) => innerWidth >= piliCount.breakpoint)
@@ -25,10 +27,18 @@
 	let ready = $state(false)
 	let softAnimations = $state(true)
 
-	onMount(() => {
-		softAnimations = false
-		setTimeout(() => (ready = true), 10)
+	// Wait for welcome intro to fade out before revealing the letters and boxes
+	$effect(() => {
+		if (!welcomeState.active) {
+			softAnimations = false
+			const timer = setTimeout(() => {
+				ready = true
+			}, 150)
+			return () => clearTimeout(timer)
+		}
+	})
 
+	onMount(() => {
 		const logoLetters = document.querySelectorAll('#logo_daksh .lt')
 		logoLetters.forEach((element) => {
 			element.addEventListener('mouseenter', () => {

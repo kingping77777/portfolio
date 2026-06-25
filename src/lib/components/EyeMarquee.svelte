@@ -120,6 +120,9 @@
 			position: relative;
 			left: 50%;
 			transform: translateX(-50%);
+			width: 100%;
+			max-width: 1200px;
+			height: auto;
 
 			@media (max-width: $mobile) {
 				width: 100%;

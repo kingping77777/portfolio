@@ -1,4 +1,5 @@
 <script>
+	import BentoGradient from '$lib/components/BentoGradient.svelte'
 	import { lenis } from '$lib/utils/lenis'
 	import { m } from '$lib/paraglide/messages'
 
@@ -12,32 +13,29 @@
 	}
 
 	const tagIcons = {
-		'Python': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg'],
-		'NumPy / Pandas': [
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg',
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg'
-		],
-		'OpenCV': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg'],
-		'Streamlit': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg'],
-		'Machine Learning': [
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg',
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg'
-		],
-		'Computer Vision': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg'],
-		'HTML': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg'],
-		'CSS': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'],
-		'JavaScript': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg'],
-		'Firebase': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg'],
-		'Vercel': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg'],
-		'Git / GitHub': [
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
-			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg'
-		],
-		'Jupyter Notebook': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg'],
-		'Raspberry Pi': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg'],
-		'Java (OOP)': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg'],
-		'C Language': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg'],
-		'IoT': ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg']
+		'Python': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h5"/><path d="M12 14v6a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-5"/></svg>`,
+		'NumPy / Pandas': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>`,
+		'OpenCV': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>`,
+		'Streamlit': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>`,
+		'Machine Learning': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3.001 3.001 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3.001 3.001 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z"/></svg>`,
+		'Neural Networks': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.5" y1="10.5" x2="15.5" y2="6.5"/><line x1="8.5" y1="13.5" x2="15.5" y2="17.5"/></svg>`,
+		'Model Evaluation': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+		'Computer Vision': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+		'HTML': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.55a1 1 0 0 0-.77.37L12 16l-3.68-5.63a1 1 0 0 0-.77-.37H6l6 9z"/><path d="M6 14h12l-6-9z"/></svg>`,
+		'CSS': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1 0 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/><path d="M4 8h16"/><path d="M8 12h8"/></svg>`,
+		'JavaScript': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3V3z"/><path d="M15 8h-3v5h3"/><path d="M12 11h2"/></svg>`,
+		'Firebase': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>`,
+		'Vercel': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>`,
+		'Paper Analysis': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+		'AI Research': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3.001 3.001 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3.001 3.001 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z"/></svg>`,
+		'Experiment Log': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+		'Git / GitHub': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`,
+		'Jupyter Notebook': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 1 0 10 10"/></svg>`,
+		'Raspberry Pi': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M5 12a7 7 0 0 0 14 0"/></svg>`,
+		'Java (OOP)': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>`,
+		'C Language': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16A6 6 0 1 1 18 8"/></svg>`,
+		'YOLO': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>`,
+		'IoT': `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><circle cx="12" cy="17" r="1"/></svg>`
 	}
 </script>
 
@@ -66,9 +64,7 @@
 				{#each tags as tag}
 					<span class="tag">
 						{#if tagIcons[tag]}
-							{#each tagIcons[tag] as iconUrl}
-								<img src={iconUrl} class="tag-logo" alt={tag} />
-							{/each}
+							<span class="tag-icon">{@html tagIcons[tag]}</span>
 						{/if}
 						{tag}
 					</span>
@@ -111,6 +107,7 @@
 {/snippet}
 
 <div class="bento">
+
 	{@render textItem(
 		m.bento_one_title(),
 		m.bento_one_subtitle(),
@@ -134,6 +131,10 @@
 		m.bento_three_paragraph(),
 		['HTML', 'CSS', 'JavaScript', 'Firebase', 'Vercel']
 	)}
+
+	<div class="item gradient">
+		<BentoGradient />
+	</div>
 
 	{@render textItem(
 		m.bento_four_title(),
@@ -183,7 +184,7 @@
 		.item {
 			flex-basis: 21%;
 			flex-grow: 1;
-			min-height: 250px;
+			min-height: 220px;
 			max-width: calc(100vh - 2rem);
 			min-width: 300px;
 			background-color: var(--color-surface-card);
@@ -196,7 +197,6 @@
 				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 			}
 
-
 			&.textual {
 				border: solid 1px var(--color-border);
 				padding: 3rem;
@@ -208,7 +208,17 @@
 					padding: 2rem;
 				}
 
+				@media (any-pointer: fine) {
+					&:not(:hover) {
+						a.cta {
+							opacity: 0;
+						}
 
+						p {
+							transform: translateY(40px);
+						}
+					}
+				}
 
 				a.cta {
 					display: flex;
@@ -219,7 +229,7 @@
 					margin-bottom: -1rem;
 					margin-top: -1.5rem;
 					text-decoration: none;
-					transition: ease all 200ms;
+					transition: ease all 300ms;
 					height: 20px;
 
 					@media (max-width: $mobile) {
@@ -230,10 +240,6 @@
 						gap: 1rem;
 						color: var(--color-accent);
 					}
-				}
-
-				&.webapps {
-					flex-basis: 15%;
 				}
 
 				&.ml {
@@ -262,7 +268,7 @@
 					text-transform: none;
 					font-size: 1rem;
 					margin-top: 0;
-					transition: ease all 180ms;
+					transition: ease all 250ms;
 				}
 
 				.skills-tags {
@@ -274,25 +280,25 @@
 				}
 
 				.tag {
+					font-size: 0.65rem;
+					padding: 0.2rem 0.5rem;
+					background-color: transparent;
+					color: var(--color-light-grey);
+					border-radius: 9999px;
+					border: 1px solid var(--color-ultralight-grey);
+					text-transform: none;
+					font-weight: 400;
+					white-space: nowrap;
+					line-height: 1.3;
 					display: inline-flex;
 					align-items: center;
-					gap: 0.4rem;
-					font-size: 0.75rem;
-					padding: 0.3rem 0.65rem;
-					background-color: var(--color-ultralight-grey);
-					color: var(--color-dark-grey);
-					border-radius: 9999px;
-					border: 1px solid var(--color-border);
-					text-transform: none;
-					font-weight: 500;
-					white-space: nowrap;
-					transition: background-color 0.2s ease, border-color 0.2s ease;
+					gap: 4px;
 
-					.tag-logo {
-						width: 14px;
-						height: 14px;
-						object-fit: contain;
-						display: inline-block;
+					.tag-icon {
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						color: var(--color-accent);
 					}
 				}
 

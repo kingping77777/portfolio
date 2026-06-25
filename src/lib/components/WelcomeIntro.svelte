@@ -2,14 +2,25 @@
 	import { onMount } from 'svelte'
 	import { browser } from '$app/environment'
 
-	let active = $state(true)
+	import { welcomeState } from '$lib/utils/state.svelte.js'
+
 	let progress = $state(0)
 	let entered = $state(false)
+
+	// Pre-initialize check before mount to prevent visual flashes
+	if (browser && sessionStorage.getItem('welcome-intro-played') === 'true') {
+		welcomeState.active = false
+	}
 
 	onMount(() => {
 		if (!browser) return
 		
-		active = true
+		if (sessionStorage.getItem('welcome-intro-played') === 'true') {
+			welcomeState.active = false
+			return
+		}
+
+		welcomeState.active = true
 
 		// Load simulation over 1.8 seconds
 		const duration = 1800
@@ -31,13 +42,16 @@
 
 	const handleEnter = () => {
 		entered = true
+		if (browser) {
+			sessionStorage.setItem('welcome-intro-played', 'true')
+		}
 		setTimeout(() => {
-			active = false
+			welcomeState.active = false
 		}, 850) // Allow exit transition to complete
 	}
 </script>
 
-{#if active}
+{#if welcomeState.active}
 	<div 
 		class="welcome-intro" 
 		class:fade-out={entered}

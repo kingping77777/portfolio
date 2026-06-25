@@ -33,9 +33,8 @@
 		Footer
 	]
 
-	// for later dynamic import
-	let PiliHandler = $state(null)
-	let OffsetHandler = $state(null)
+	import PiliHandler from '$lib/components/PiliHandler.svelte'
+	import OffsetHandler from '$lib/components/OffsetHandler.svelte'
 
 	const canonical = 'https://dakshsengar.dev/'
 	const jsonLd = {
@@ -93,22 +92,6 @@
 
 		scrollAnimations.animateTextReveal(targets)
 
-		const loadHandlers = () => {
-			import('$lib/components/PiliHandler.svelte').then((m) => {
-				PiliHandler = m.default
-			})
-			import('$lib/components/OffsetHandler.svelte').then((m) => {
-				OffsetHandler = m.default
-			})
-		}
-
-		// mount handlers on requestIdleCallback
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(loadHandlers, { timeout: 2000 })
-		} else {
-			setTimeout(loadHandlers, 500)
-		}
-
 		return () => {
 			document.removeEventListener('visibilitychange', handleVisibilityChange)
 			scrollAnimations.destroy()
@@ -142,13 +125,8 @@
 	{/each}
 </div>
 
-{#if PiliHandler}
-	<PiliHandler />
-{/if}
-
-{#if OffsetHandler}
-	<OffsetHandler />
-{/if}
+<PiliHandler />
+<OffsetHandler />
 
 <style lang="scss">
 	.wrapper {

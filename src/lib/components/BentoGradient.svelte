@@ -199,7 +199,7 @@
 		display: flex;
 		height: 100%;
 		width: 100%;
-		border: solid 1px $ultralight-grey;
+		border: solid 1px var(--color-border);
 		border-radius: 40px;
 
 		@media (min-width: 1920px) {

@@ -124,4 +124,8 @@
 			filter: opacity(0.3);
 		}
 	}
+
+	:global([data-theme='dark']) .pili img {
+		filter: invert(1) opacity(0.3);
+	}
 </style>
