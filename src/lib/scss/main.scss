@@ -109,13 +109,13 @@ h2 {
 	}
 
 	@media (max-width: $tablet) {
-		font-size: $fs-xxl;
+		font-size: clamp(4rem, 12vw, 7rem);
 	}
 
 	@media (max-width: $mobile) {
-		font-size: $fs-xl;
-		word-break: break-word;
-		hyphens: auto;
+		font-size: clamp(2.2rem, 10vw, 3.5rem);
+		word-break: normal;
+		hyphens: none;
 	}
 }
 

@@ -114,7 +114,7 @@
 
 			h2 {
 				@media (max-width: $mobile) {
-					font-size: $fs-xl * 1.3;
+					font-size: clamp(2.5rem, 12vw, 4rem);
 				}
 			}
 		}

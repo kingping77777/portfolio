@@ -40,11 +40,11 @@
 			color: $accent;
 
 			@media (max-width: $tablet) {
-				font-size: $fs-xxl;
+				font-size: clamp(4rem, 12vw, 7rem);
 			}
 
 			@media (max-width: $mobile) {
-				font-size: $fs-xl;
+				font-size: clamp(2.2rem, 10vw, 3.5rem);
 			}
 		}
 
